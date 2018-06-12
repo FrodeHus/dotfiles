@@ -192,6 +192,8 @@ then
     echo "No installation of VS Code found. Will not attempt to symlink VS Code settings.json."
   fi
 fi
+echo "Installing wsl.conf"
+sudo ln -s ~/.dotfiles/wsl/wsl.conf /etc/wsl.conf
 
 echo ''
 echo '  All installed!'

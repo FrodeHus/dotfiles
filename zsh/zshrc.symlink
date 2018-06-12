@@ -52,7 +52,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="jldeen"
+DEFAULT_USER="chaosmonkey"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -101,7 +101,7 @@ plugins=(sudo git history taskwarrior tmux tmuxinator zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source ~/.dotfiles/system/
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -134,7 +134,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 
 export PATH=$PATH:~/bin
-
+export GPG_TTY=`tty`
 # az cli
-# autoload bashcompinit && bashcompinit
+autoload bashcompinit && bashcompinit
 # source /usr/bin/az
