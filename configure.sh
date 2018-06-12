@@ -17,8 +17,8 @@ fi
 
 # Installing git completion
 echo ''
-echo "Now installing git and bash-completion..."
-sudo apt-get install git bash-completion -y
+echo "Now installing git, gnupg2, gnupg-agent and bash-completion..."
+sudo apt-get install git bash-completion gnupg2 gnupg-agent -y
 
 echo ''
 echo "Now configuring git-completion..."
