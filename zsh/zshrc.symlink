@@ -133,16 +133,15 @@ alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 
-export PATH=$PATH:~/bin
+export GOPATH=/c/src/go
+export PATH=$PATH:~/bin:$GOPATH/bin:/usr/local/go/bin
 export GPG_TTY=`tty`
+export DOCKER_HOST=tcp://localhost:2375
 # az cli
 autoload bashcompinit && bashcompinit
 # source /usr/bin/az
 
-if test -f $HOME/.gpg-agent-info && \
-	kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
-	GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
-else
-	eval `gpg-agent --daemon --no-grab `
-fi
-export GPG_AGENT_INFO
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
