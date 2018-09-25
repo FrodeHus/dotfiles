@@ -59,3 +59,4 @@ set ttyfast
 set lazyredraw
 map tt :NERDTreeToggle<CR> "double click t button to toggle NerdTree
 map [] :TagbarToggle<CR> "click [] to toggle Tagbar
+autocmd FileType yaml setlocal ts=2 sw=2 expandtab
