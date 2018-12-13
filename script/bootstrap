@@ -175,7 +175,6 @@ echo "Now installing tmux plugin manager..."
 echo ''
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
 echo "Installing wsl.conf"
 sudo ln -s ~/.dotfiles/wsl/wsl.conf /etc/wsl.conf
 
