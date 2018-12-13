@@ -133,7 +133,7 @@ alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 alias kk="KUBECONFIG=~/raspian/config kubectl"
-alias kshell="kubectl run -i --tty busybox --image=busybox -l aadpodidbinding=vaultaccess --restart=Never -- sh"
+alias kshell="kubectl run -i --tty ubuntu --image=ubuntu -l aadpodidbinding=vaultaccess --restart=Never -- bash"
 
 export GOPATH=/c/src/go
 export PATH=$PATH:~/bin:$GOPATH/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin
