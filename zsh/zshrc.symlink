@@ -142,7 +142,7 @@ export DOCKER_HOST=tcp://localhost:2375
 # az cli
 autoload bashcompinit && bashcompinit
 # source /usr/bin/az
-
+source <(kubectl completion zsh)
 umask 022
 
 export NVM_DIR="$HOME/.nvm"
