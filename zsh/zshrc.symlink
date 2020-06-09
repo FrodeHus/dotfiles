@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export TERM=screen-256color
+export TERM=xterm-256color
 export DISPLAY=:0
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,7 +16,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # POWERLEVEL9K_PUBLIC_IP_HOST='http://ident.me'
 
 # zsh tmux settings
-ZSH_TMUX_AUTOSTART='true'
+
+ZSH_TMUX_AUTOSTART='false'
 
 ## Powerlevel9k Settings
 POWERLEVEL9K_HISTORY_BACKGROUND='green'
@@ -71,7 +72,7 @@ DEFAULT_USER="frode"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -134,11 +135,12 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 alias kk="KUBECONFIG=~/raspian/config kubectl"
 alias kshell="kubectl run -i --tty ubuntu --image=ubuntu -l aadpodidbinding=vaultaccess --restart=Never -- bash"
-
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 export GOPATH=/c/src/go
-export PATH=$PATH:~/bin:$GOPATH/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin
+export PATH=$PATH:~/bin:$GOPATH/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin:~/.local/bin
 export GPG_TTY=`tty`
-export DOCKER_HOST=tcp://localhost:2375
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+#export DOCKER_HOST=tcp://localhost:2375
 # az cli
 autoload bashcompinit && bashcompinit
 # source /usr/bin/az
@@ -151,4 +153,8 @@ export NVM_DIR="$HOME/.nvm"
 
 function jwt-decode() {
 	  sed 's/\./\n/g' <<< $(cut -d. -f1,2 <<< $1) | base64 --decode | jq
+}
+
+function set-title(){
+  printf "\033];%s\07\n" "$@"
 }

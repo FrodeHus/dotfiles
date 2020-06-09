@@ -27,7 +27,7 @@ elif [[ "$PUB_IP" = "" ]]; then
 else 
     PUB_IP=$(speedtest-cli --json | jq -r .client.ip)
 fi
- 
+PUB_IP="" 
 INTERNET=''
 
 #internet_info=`iwconfig eth0 | grep "Signal level" | awk '{print $2}' | sed 's/-//g'`
@@ -44,4 +44,4 @@ INTERNET=''
 #     echo -n '#[fg=colour150]'
 # fi
 
-echo -n "#[fg=colour150]$INTERNET  #[fg=colour81]$PL #[fg=colour86]$DL Mbit/s $UP Mbit/s #[fg=colour197]$IP | $PUB_IP"
+echo -n "#[fg=colour150]$INTERNET  #[fg=colour81]$PL #[fg=colour86]$DL Mbit/s $UP Mbit/s #[fg=colour197]"
